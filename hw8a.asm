@@ -1,5 +1,8 @@
 # Elijah Ren - 116253293
 
+# If formatting is off, I have my tabs as
+# 4 spaces, instead of the default 8 spaces
+
 .data
 	select_prompt: .asciiz "Triangle(0) or Square(1) or Pyramid (2)?"
 	size_prompt: .asciiz "Required size?"
@@ -143,7 +146,8 @@ pyramid:
 	sub $t0, $a2, $a1		# Determine how many spaces come 
 							# before the first star ($t0 = n - i)
 
-	addi $t0, $t0, -1		# Off by 1 because first iteration is $a1 = 0
+	addi $t0, $t0, -1		# Off by 1 because first iteration
+							# is $a1 = 0, instead of 1
 	
 	ble $t0, 0, star_loop_p	# If 0 spaces, skip space_loop
 space_loop:
