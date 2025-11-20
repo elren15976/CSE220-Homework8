@@ -3,7 +3,8 @@
 .data
 	select_prompt: .asciiz "Triangle(0) or Square(1) or Pyramid (2)?"
 	size_prompt: .asciiz "Required size?"
-	star: .asciiz "* "
+	star: .asciiz "*"
+	whitespace: .asciiz " "
 	newline: .asciiz "\n"
 
 .text
@@ -121,9 +122,59 @@ base_square:
 
 
 pyramid_start:
+	move $a2, $a1			# Copy shape size to $a2, so loop operations
+							# don't affect it
 	jal pyramid				# After branching, use jal so the
 							# final return statement has somewhere to go
 	j exit					# After returning from main function, go to exit
 pyramid:
+	addi $sp, $sp, -8		# Allocate space in stack to store 2 integers
+	sw $ra, 4($sp)			# Store return address into stack
+	sw $a1, 0($sp)			# Store current size into stack
+	
+	ble $a1, 0, base_pyramid	# If $a1 is less than or equal to 0, go to base case
+							# Does not overwrite $ra
+	
+	add $a1, $a1, -1		# Decrementing counter (n = n - 1)
+	
+	jal pyramid				# If not base case, recursively call
+							# Once base case reached, jr will return here
+
+	sub $t0, $a2, $a1		# Determine how many spaces come 
+							# before the first star ($t0 = n - i)
+
+	addi $t0, $t0, -1		# Off by 1 because first iteration is $a1 = 0
+	
+	ble $t0, 0, star_loop_p	# If 0 spaces, skip space_loop
+space_loop:
+	la $a0, whitespace		# Load whitespace into $a0
+	li $v0, 4				# Syscall code for printing ascii
+	syscall
+	
+	addi $t0, $t0, -1		# (i = i - 1)
+	
+	bgt $t0, 0, space_loop	# Loop condition (if i > 0, then loop)
+	
+star_loop_p:
+	la $a0, star			# Load star into $a0
+	li $v0, 4				# Syscall code for printing ascii
+	syscall
+	
+	la $a0, whitespace		# Load whitespace into $a0
+	li $v0, 4				# Syscall code for printing ascii
+	syscall
+	
+	addi $t0, $t0, 1		# After iteration, add 1 (i = i + 1)
+	
+	ble $t0, $a1, star_loop_p	# Loop condition (if i <= n, then loop)
+	
+	la $a0, newline			# Load newline character into $a0
+	li $v0, 4				# Syscall code for printing ascii
+	syscall
+	
+base_pyramid:
+	lw $ra, 4($sp)			# Load/Recall return address into stack
+	lw $a1, 0($sp)			# Load/Recall current size from stack
+	addi $sp, $sp, 8		# Deallocate space in stack
 	
 	jr $ra					# Return to Caller
