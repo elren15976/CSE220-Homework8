@@ -45,11 +45,11 @@ triangle_start:
 							# final return statement has somewhere to go
 	j exit					# After returning from main function, go to exit
 triangle:
-	addi $sp, $sp, -8		# Allocate space in stack to store 1 integer
+	addi $sp, $sp, -8		# Allocate space in stack to store 2 integers
 	sw $ra, 4($sp)			# Store return address into stack
 	sw $a1, 0($sp)			# Store current size into stack
 	
-	ble $a1, 0, base_triangle	# If $a0 is less than or equal to 0, go to base case
+	ble $a1, 0, base_triangle	# If $a1 is less than or equal to 0, go to base case
 							# Does not overwrite $ra
 	
 	add $a1, $a1, -1		# Decrementing counter (n = n - 1)
@@ -80,10 +80,42 @@ base_triangle:
 
 
 square_start:
+	move $a2, $a1			# Copy shape size to $a2, so loop operations
+							# don't affect it
 	jal square				# After branching, use jal so the
 							# final return statement has somewhere to go
 	j exit					# After returning from main function, go to exit
 square:
+	addi $sp, $sp, -8		# Allocate space in stack to store 2 integers
+	sw $ra, 4($sp)			# Store return address into stack
+	sw $a1, 0($sp)			# Store current size into stack
+	
+	ble $a1, 0, base_square	# If $a1 is less than or equal to 0, go to base case
+							# Does not overwrite $ra
+	
+	add $a1, $a1, -1		# Decrementing counter (n = n - 1)
+	
+	jal square				# If not base case, recursively call
+							# Once base case reached, jr will return here
+	
+	li $t0, 0				# Loop variable (int i = 0)
+star_loop_s:
+	la $a0, star			# Load star into $a0
+	li $v0, 4				# Syscall code for printing ascii
+	syscall
+	
+	addi $t0, $t0, 1		# After iteration, add 1 (i = i + 1)
+	
+	blt $t0, $a2, star_loop_s	# Loop condition (if i < n, then loop)
+	
+	la $a0, newline			# Load newline character into $a0
+	li $v0, 4				# Syscall code for printing ascii
+	syscall
+	
+base_square:
+	lw $ra, 4($sp)			# Load/Recall return address into stack
+	lw $a1, 0($sp)			# Load/Recall current size from stack
+	addi $sp, $sp, 8		# Deallocate space in stack
 	
 	jr $ra					# Return to Caller
 
