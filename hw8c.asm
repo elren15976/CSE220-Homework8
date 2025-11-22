@@ -21,9 +21,9 @@ main:
 	la $a1, myArray			# Load myArray into $a1
 	lw $a2, num				# Load array size into $a2
 	li $a3, 0				# Loop variable into $a3 (int i = 0)
-	jal print_array
+	jal print_array			# Jump to print_array
 	
-	jal sort
+	jal sort				# Sort the array
 	
 	la $a0, af_sort			# Load "After sorting: " into $a0
 	li $v0, 4				# Syscall code for printing ascii
@@ -31,7 +31,7 @@ main:
 	
 	la $a1, myArray			# Load myArray into $a1
 	lw $a2, num				# Load array size into $a2
-	jal print_array
+	jal print_array			# Jump to print_array
 	
 exit:
 	#Exiting Program

@@ -53,7 +53,7 @@ triangle:
 	sw $ra, 4($sp)			# Store return address into stack
 	sw $a1, 0($sp)			# Store current size into stack
 	
-	ble $a1, 0, base_triangle	# If $a1 is less than or equal to 0, go to base case
+	ble $a1, 0, base_triangle # If $a1 is less than or equal to 0, go to base case
 							# Does not overwrite $ra
 	
 	add $a1, $a1, -1		# Decrementing counter (n = n - 1)
@@ -69,7 +69,7 @@ star_loop_t:
 	
 	addi $t0, $t0, 1		# After iteration, add 1 (i = i + 1)
 	
-	ble $t0, $a1, star_loop_t	# Loop condition (if i <= n, then loop)
+	ble $t0, $a1, star_loop_t # Loop condition (if i <= n, then loop)
 	
 	la $a0, newline			# Load newline character into $a0
 	li $v0, 4				# Syscall code for printing ascii
@@ -110,7 +110,7 @@ star_loop_s:
 	
 	addi $t0, $t0, 1		# After iteration, add 1 (i = i + 1)
 	
-	blt $t0, $a2, star_loop_s	# Loop condition (if i < n, then loop)
+	blt $t0, $a2, star_loop_s # Loop condition (if i < n, then loop)
 	
 	la $a0, newline			# Load newline character into $a0
 	li $v0, 4				# Syscall code for printing ascii
@@ -135,7 +135,7 @@ pyramid:
 	sw $ra, 4($sp)			# Store return address into stack
 	sw $a1, 0($sp)			# Store current size into stack
 	
-	ble $a1, 0, base_pyramid	# If $a1 is less than or equal to 0, go to base case
+	ble $a1, 0, base_pyramid # If $a1 is less than or equal to 0, go to base case
 							# Does not overwrite $ra
 	
 	add $a1, $a1, -1		# Decrementing counter (n = n - 1)
@@ -170,7 +170,7 @@ star_loop_p:
 	
 	addi $t0, $t0, 1		# After iteration, add 1 (i = i + 1)
 	
-	ble $t0, $a1, star_loop_p	# Loop condition (if i <= n, then loop)
+	ble $t0, $a1, star_loop_p # Loop condition (if i <= n, then loop)
 	
 	la $a0, newline			# Load newline character into $a0
 	li $v0, 4				# Syscall code for printing ascii

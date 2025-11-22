@@ -92,7 +92,7 @@ print_loop:
 	add $t2, $s0, $t1		# Storing address + index for array A
 	add $t3, $s1, $t1		# Storing address + index for array B
 	
-	lw $a0, ($t2)				# Load integer stored in current index of array A
+	lw $a0, ($t2)			# Load integer stored in current index of array A
 	li $v0, 1				# Syscall code for printing integer
 	syscall
 	
@@ -100,7 +100,7 @@ print_loop:
 	li $v0, 4				# Syscall code for printing ascii
 	syscall
 	
-	lw $a0, ($t3)				# Load integer stored in current index of array B
+	lw $a0, ($t3)			# Load integer stored in current index of array B
 	li $v0, 1				# Syscall code for printing integer
 	syscall
 	
@@ -127,5 +127,5 @@ swap:
 	
 	sw $t1, ($a2)			# Store $t1 into memory address $a2
 	sw $t2, ($a1)			# Store $t2 into memory address $a1
-	jr $ra
+	jr $ra					# Return to Caller
 	
