@@ -18,8 +18,8 @@
 		.word 6, 48, 78, 32, 86
 		.word 91, 47, 79, 54, 28
 	
-	C: .space 100			# 16 integers * 4 bytes each = 64 bytes
-	n: .word 5				# Matrix dimension (4x4)
+	C: .space 100			# 25 integers * 4 bytes each = 100 bytes
+	n: .word 5				# Matrix dimension (5x5)
 	
 .text
 .globl main
