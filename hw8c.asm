@@ -46,6 +46,9 @@ sort:
 sort_loop_one:
 	li $t1, 0				# Loop variable 2 (int j = 0)
 	sub $t2, $a2, $t0		# Inner loop bound (n-1-i)
+	
+	ble $a2, 1, skip_loop	# If array size less than or equal to 1, skip sorting altogether
+							# Must be done after loop variables initialized
 sort_loop_two:
 	mul $t3, $t1, 4			# Getting offset for arrays $t3 = j * 4
 	add $t3, $a1, $t3		# Storing v[j] into $t3

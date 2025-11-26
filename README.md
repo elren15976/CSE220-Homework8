@@ -114,3 +114,43 @@ B = {3, 7, 2, 6, 7, 2, 5, 3, 9, 1}
 
 Output:\
 3 5|7 8|2 2|6 4|7 8|2 4|5 1|3 6|9 3|1 2|
+
+
+## Part C - Sorting in MIPS Assembly Language
+Test 1:\
+myArray = {100, 95, 35, 30, 1450, 450, 20, 8, 765, 720}
+
+Output:\
+Before sorting: 100 95 35 30 1450 450 20 8 765 720\
+After sorting: 8 20 30 35 95 100 450 720 765 1450
+
+Test 2:\
+myArray = {5, 4, 3, 2, 1}
+
+Output:\
+Before sorting: 5 4 3 2 1\
+After sorting: 1 2 3 4 5
+
+Test 3:\
+myArray = {2, 5, 8, 11, 14, 17, 20}
+
+Output:\
+Before sorting: 2 5 8 11 14 17 20
+After sorting: 2 5 8 11 14 17 20
+
+Test 4:\
+myArray = {5, 20, 2, 11, 17, 8, 14}
+
+Output:\
+Before sorting: 5 20 2 11 17 8 14
+After sorting: 2 5 8 11 14 17 20
+
+Test 5:\
+myArray = {2}
+
+Output:\
+Before sorting: 2
+After sorting: 2
+
+
+## Part D - Matrix Multiplication in MIPS Assembly Language
