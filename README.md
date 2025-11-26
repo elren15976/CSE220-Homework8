@@ -109,7 +109,7 @@ Output:\
 
 
 Test 5:\
-A = {5, 8, 2, 4, 8, 4, 1, 6, 3, 2}
+A = {5, 8, 2, 4, 8, 4, 1, 6, 3, 2}\
 B = {3, 7, 2, 6, 7, 2, 5, 3, 9, 1}
 
 Output:\
@@ -135,21 +135,21 @@ Test 3:\
 myArray = {2, 5, 8, 11, 14, 17, 20}
 
 Output:\
-Before sorting: 2 5 8 11 14 17 20
+Before sorting: 2 5 8 11 14 17 20\
 After sorting: 2 5 8 11 14 17 20
 
 Test 4:\
 myArray = {5, 20, 2, 11, 17, 8, 14}
 
 Output:\
-Before sorting: 5 20 2 11 17 8 14
+Before sorting: 5 20 2 11 17 8 14\
 After sorting: 2 5 8 11 14 17 20
 
 Test 5:\
 myArray = {2}
 
 Output:\
-Before sorting: 2
+Before sorting: 2\
 After sorting: 2
 
 
