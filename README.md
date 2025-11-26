@@ -4,8 +4,8 @@
 
 Part A - Drawing with MIPS:
 
-Test 1:
-Triangle(0) or Square(1) or Pyramid (2)?	0
+Test 1:\
+Triangle(0) or Square(1) or Pyramid (2)?	0\
 Required size?	3
 
 Output:
@@ -16,8 +16,8 @@ Output:
 ```
 
 
-Test 2:
-Triangle(0) or Square(1) or Pyramid (2)?	1
+Test 2:\
+Triangle(0) or Square(1) or Pyramid (2)?	1\
 Required size?	6
 
 Output:
@@ -31,8 +31,8 @@ Output:
 ```
 
 
-Test 3:
-Triangle(0) or Square(1) or Pyramid (2)?	0
+Test 3:\
+Triangle(0) or Square(1) or Pyramid (2)?	0\
 Required size?	6
 
 Output:
@@ -46,8 +46,8 @@ Output:
 ```
 
 
-Test 4:
-Triangle(0) or Square(1) or Pyramid (2)?	2
+Test 4:\
+Triangle(0) or Square(1) or Pyramid (2)?	2\
 Required size?	4
 
 Output:
@@ -59,8 +59,8 @@ Output:
 ```
 
 
-Test 5:
-Triangle(0) or Square(1) or Pyramid (2)?	2
+Test 5:\
+Triangle(0) or Square(1) or Pyramid (2)?	2\
 Required size?	7
 
 Output:
